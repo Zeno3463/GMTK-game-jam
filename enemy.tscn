@@ -33,7 +33,6 @@ shape = SubResource( 1 )
 position = Vector2( 0.625, -4.25 )
 scale = Vector2( 2.59031, 2.59031 )
 frames = SubResource( 2 )
-frame = 3
 playing = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

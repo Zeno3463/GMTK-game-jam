@@ -4,6 +4,7 @@ export var dir = Vector2.LEFT
 export var randomizedMovement = true
 export var speed = 100
 var inRange = false
+var particle = preload("res://explosion.tscn")
 
 func _ready():
 	randomize()
@@ -36,5 +37,10 @@ func _on_Area2D_body_entered(body):
 		body.die()
 		
 func die():
+	var Particle = particle.instance()
+	Particle.emitting = true
+	Particle.rotation_degrees = 0
+	Particle.global_position = global_position
+	get_tree().get_root().get_node(".").add_child(Particle)
 	get_parent().get_parent().get_node("CanvasLayer").enemyKilled += 1
 	queue_free()
