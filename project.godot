@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="GMTK game jam"
 run/main_scene="res://Test.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/icon.png"
 
 [display]
 
@@ -66,4 +66,5 @@ shoot={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.180392, 0.0509804, 0.309804, 0.345098 )
 environment/default_environment="res://default_env.tres"

@@ -3,6 +3,7 @@ extends Node2D
 var bullet = preload("res://bullet.tscn")
 var lookVec = Vector2.ZERO
 var speed = 500
+var canShoot = true
 
 func _process(delta):
 	#rotate towards mouse
@@ -11,9 +12,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	#shooting
-	if Input.is_action_just_pressed("shoot"):
-#		#screen shake
-#		get_parent().get_node("Camera2D").start()
+	if Input.is_action_just_pressed("shoot") and canShoot:
+		#screen shake
+		get_parent().get_parent().get_node("Camera2D").start()
 
 		var Bullet = bullet.instance()
 		Bullet.get_node("bullet").vel = Vector2(cos(global_rotation), sin(global_rotation)) * speed

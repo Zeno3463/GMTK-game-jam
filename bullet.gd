@@ -6,5 +6,7 @@ func _physics_process(delta):
 	move_and_slide(vel)
 
 func _on_Area2D_body_entered(body):
-	if body != self:
+	if body != self and body.name != "Player":
 		queue_free()
+	if body.name == "enemy":
+		body.die()

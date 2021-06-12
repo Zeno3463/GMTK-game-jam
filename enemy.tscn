@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/Enemy/New_Piskel-11.png.png" type="Texture" id=1]
+[ext_resource path="res://enemy.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Enemy/New_Piskel-10.png.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemy/New_Piskel-12.png.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Enemy/New_Piskel-13.png.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.625, 16.375 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 11.969, -12.3914, -11.812, -11.9189, -12.5207, 22.2565, 11.654, 22.0202 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 13, 17.75 )
+
+[node name="enemy" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.625, -4.25 )
+scale = Vector2( 2.59031, 2.59031 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 0.75, -5.375 )
+occluder = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
