@@ -8,13 +8,16 @@ var movingLeft = true
 var timeBtwSwitch = 0
 var startTimeBtwSwitch = 1
 
+var died = false
+
 func _process(delta):
-	if Input.is_action_just_pressed("click") and timeBtwSwitch <= 0:
-		get_node("weapon").canShoot = not get_node("weapon").canShoot
-		vision = 2 if vision == 0.3 else 0.3
-		timeBtwSwitch = startTimeBtwSwitch
-	else:
-		timeBtwSwitch -= delta
+	if not died:
+		if Input.is_action_just_pressed("click") and timeBtwSwitch <= 0:
+			get_node("weapon").canShoot = not get_node("weapon").canShoot
+			vision = 2 if vision == 0.3 else 0.3
+			timeBtwSwitch = startTimeBtwSwitch
+		else:
+			timeBtwSwitch -= delta
 		
 	get_parent().get_node("CanvasLayer/TextureProgress").value = (startTimeBtwSwitch - timeBtwSwitch)/startTimeBtwSwitch * 100
 	
@@ -24,30 +27,37 @@ func _process(delta):
 		
 
 func _physics_process(delta):
-	if Input.is_action_pressed("left"):
-		vel.x = -1
-	elif Input.is_action_pressed("right"):
-		vel.x = 1
-	else: vel.x = 0
-	if Input.is_action_pressed("up"):
-		vel.y = -1
-	elif Input.is_action_pressed("down"):
-		vel.y = 1
-	else: vel.y = 0
-	
-	if vel.x >= 1:
-		get_node("Sprite").flip_h = false
-	elif vel.x <= -1:
-		get_node("Sprite").flip_h = true
-	
-	if vel == Vector2.ZERO:
-		get_node("Sprite").playing = false
-		get_node("Sprite").frame = 1
-	else:
-		get_node("Sprite").playing = true
-	
-	
-	move_and_slide(vel.normalized() * speed)
+	if not died:
+		if Input.is_action_pressed("left"):
+			vel.x = -1
+		elif Input.is_action_pressed("right"):
+			vel.x = 1
+		else: vel.x = 0
+		if Input.is_action_pressed("up"):
+			vel.y = -1
+		elif Input.is_action_pressed("down"):
+			vel.y = 1
+		else: vel.y = 0
+		
+		if vel.x >= 1:
+			get_node("Sprite").flip_h = false
+		elif vel.x <= -1:
+			get_node("Sprite").flip_h = true
+		
+		if vel == Vector2.ZERO:
+			get_node("Sprite").playing = false
+			get_node("Sprite").frame = 1
+		else:
+			get_node("Sprite").playing = true
+		
+		
+		move_and_slide(vel.normalized() * speed)
+
+func die():
+	died = true
+	$Sprite.play("death")
+	yield($Sprite, "animation_finished")
+	get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_Area2D_body_entered(body):
 	if body.name[0] == "e":
