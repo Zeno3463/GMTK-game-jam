@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var vel = Vector2.ZERO
 export var speed = 250
-var vision = 0.5
+var vision = 0.3
 var movingLeft = true
 
 var timeBtwSwitch = 0
@@ -11,7 +11,7 @@ var startTimeBtwSwitch = 1
 func _process(delta):
 	if Input.is_action_just_pressed("click") and timeBtwSwitch <= 0:
 		get_node("weapon").canShoot = not get_node("weapon").canShoot
-		vision = 2 if vision == 0.5 else 0.5
+		vision = 2 if vision == 0.3 else 0.3
 		timeBtwSwitch = startTimeBtwSwitch
 	else:
 		timeBtwSwitch -= delta
