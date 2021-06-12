@@ -8,5 +8,5 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	if body != self and body.name != "Player":
 		queue_free()
-	if body.name == "enemy":
+	if body.name[0] == "e":
 		body.die()
