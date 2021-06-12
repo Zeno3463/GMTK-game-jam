@@ -33,7 +33,8 @@ func _physics_process(delta):
 			dir = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()
 func _on_Area2D_body_entered(body):
 	# if the player touches the enemy
-	if body.name == "Player" and inRange:
+	if body.name == "Player" and inRange and body.canTakeDamage:
+		get_parent().get_parent().get_node("Player").damage()
 		get_parent().get_parent().get_node("CanvasLayer/Control").damage()
 		
 func die():
