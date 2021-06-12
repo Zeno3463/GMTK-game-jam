@@ -118,6 +118,7 @@ position = Vector2( 15.5, 3.5 )
 script = ExtResource( 2 )
 
 [node name="gfx" type="Sprite" parent="Player/weapon"]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 position = Vector2( 3, 0.25 )
 scale = Vector2( 2.13333, 2.13333 )
 z_index = 2
@@ -139,10 +140,11 @@ scale = Vector2( 1.53499, 1.53499 )
 texture = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 scale = Vector2( 2.32142, 2.32142 )
 z_index = 1
 frames = SubResource( 2 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Player"]

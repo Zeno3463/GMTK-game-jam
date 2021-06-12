@@ -12,10 +12,8 @@ func _ready():
 func _process(delta):
 	if not inRange:
 		get_node("Sprite").visible = false
-		get_node("LightOccluder2D").visible = false
 	else: 
 		get_node("Sprite").visible = true
-		get_node("LightOccluder2D").visible = true
 
 	if dir.x < 0:
 		get_node("Sprite").flip_h = true

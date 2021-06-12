@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Enemy/New_Piskel-11.png.png" type="Texture" id=1]
 [ext_resource path="res://enemy.gd" type="Script" id=2]
@@ -17,9 +17,6 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="OccluderPolygon2D" id=3]
-polygon = PoolVector2Array( 11.969, -12.3914, -11.812, -11.9189, -12.5207, 22.2565, 11.654, 22.0202 )
-
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 15.625, 20 )
 
@@ -30,15 +27,12 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 position = Vector2( 0.625, -4.25 )
 scale = Vector2( 2.59031, 2.59031 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2( 0.75, -5.375 )
-occluder = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
