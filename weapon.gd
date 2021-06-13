@@ -12,10 +12,6 @@ func _process(delta):
 	#rotate towards mouse
 	lookVec = get_global_mouse_position() - global_position
 	global_rotation = atan2(lookVec.y, lookVec.x)
-	if lookVec.x < 0:
-		scale.y = -1
-	else:
-		scale.y = 1
 
 func _physics_process(delta):
 	#shooting

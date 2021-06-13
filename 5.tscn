@@ -144,7 +144,7 @@ modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 scale = Vector2( 2.32142, 2.32142 )
 z_index = 1
 frames = SubResource( 2 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Player"]
@@ -228,6 +228,16 @@ margin_top = 7.53501
 margin_right = 62.9488
 margin_bottom = 21.535
 text = "enemies killed: 0/8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 6.94879
+margin_top = 42.0395
+margin_right = 130.949
+margin_bottom = 56.0395
+text = "level: 5/5"
 __meta__ = {
 "_edit_use_anchors_": false
 }

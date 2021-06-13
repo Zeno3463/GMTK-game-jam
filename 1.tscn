@@ -208,6 +208,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="CanvasLayer"]
+margin_left = 6.94879
+margin_top = 41.0
+margin_right = 130.949
+margin_bottom = 55.0
+text = "level: 1/5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
 margin_left = 851.0
 margin_top = 12.0
