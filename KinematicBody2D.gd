@@ -14,6 +14,12 @@ var canTakeDamage = true
 func _process(delta):
 	if not died:
 		if Input.is_action_just_pressed("click") and timeBtwSwitch <= 0:
+			
+			var selectSound = preload("res://sfx/up down select.ogg")
+			var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
+			audioPlayer.stream = selectSound
+			audioPlayer.play()
+			
 			get_node("weapon").canShoot = not get_node("weapon").canShoot
 			vision = 2 if vision == 0.3 else 0.3
 			timeBtwSwitch = startTimeBtwSwitch
