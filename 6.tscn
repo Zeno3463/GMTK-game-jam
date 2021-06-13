@@ -148,7 +148,6 @@ modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 scale = Vector2( 2.32142, 2.32142 )
 z_index = 1
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="Player"]
@@ -258,8 +257,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/Control2"]
-margin_right = 1014.0
-margin_bottom = 566.0
+margin_left = 6.94879
+margin_top = 70.0204
+margin_right = 1020.95
+margin_bottom = 636.02
 custom_fonts/font = SubResource( 8 )
 text = "thank you for playing!
 
