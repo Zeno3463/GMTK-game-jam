@@ -43,7 +43,7 @@ func die():
 	get_tree().get_root().get_node(".").add_child(Particle)
 	get_parent().get_parent().get_node("CanvasLayer").enemyKilled += 1
 	
-	var enemyDeadSound = preload("res://sfx/enemy dead.ogg")
+	var enemyDeadSound = preload("res://sfx/enemy_die.ogg")
 	var audioPlayer = get_tree().get_root().get_node("/root/EnemySfx").get_node("AudioStreamPlayer")
 	audioPlayer.stream = enemyDeadSound
 	audioPlayer.play()

@@ -15,7 +15,7 @@ func _process(delta):
 	if not died:
 		if Input.is_action_just_pressed("click") and timeBtwSwitch <= 0:
 			
-			var selectSound = preload("res://sfx/up down select.ogg")
+			var selectSound = preload("res://sfx/torch_onOff.ogg")
 			var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
 			audioPlayer.stream = selectSound
 			audioPlayer.play()
@@ -64,7 +64,7 @@ func damage():
 	canTakeDamage = false
 	move_and_slide(-vel.normalized() * 2000)
 	
-	var hurtSound = preload("res://sfx/player get hit.ogg")
+	var hurtSound = preload("res://sfx/enemy_hit.ogg")
 	var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
 	audioPlayer.stream = hurtSound
 	audioPlayer.play()

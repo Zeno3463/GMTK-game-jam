@@ -22,7 +22,7 @@ func _physics_process(delta):
 			#screen shake
 			get_parent().get_parent().get_node("Camera2D").start()
 
-			var shootSound = preload("res://sfx/player shoot.ogg")
+			var shootSound = preload("res://sfx/player_shoot.ogg")
 			var audioPlayer = get_tree().get_root().get_node("/root/Sfx").get_node("AudioStreamPlayer")
 			audioPlayer.stream = shootSound
 			audioPlayer.play()
