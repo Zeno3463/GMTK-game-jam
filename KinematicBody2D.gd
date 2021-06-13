@@ -57,17 +57,31 @@ func _physics_process(delta):
 func damage():
 	canTakeDamage = false
 	move_and_slide(-vel.normalized() * 2000)
+	
+	var hurtSound = preload("res://sfx/player get hit.ogg")
+	var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
+	audioPlayer.stream = hurtSound
+	audioPlayer.play()
+	
 	yield(get_tree().create_timer(1), "timeout")
 	canTakeDamage = true
 
 func die():
 	died = true
+	
+	var deadSound = preload("res://sfx/player dead.ogg")
+	var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
+	audioPlayer.stream = deadSound
+	audioPlayer.play()
+	
 	$Sprite.play("death")
 	yield($Sprite, "animation_finished")
 	$Sprite.playing = false
 	$Sprite.frame = 6
 	var animPlayer = get_parent().get_node("CanvasLayer/ColorRect/AnimationPlayer")
 	animPlayer.play_backwards("New Anim")
+	
+	
 	yield(animPlayer, "animation_finished")
 	get_tree().change_scene(get_tree().current_scene.filename)
 	died = false
