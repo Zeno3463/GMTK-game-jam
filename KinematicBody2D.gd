@@ -75,6 +75,8 @@ func damage():
 func die():
 	died = true
 	
+	$weapon.visible = false
+	
 	var deadSound = preload("res://sfx/player dead.ogg")
 	var audioPlayer = get_tree().get_root().get_node("/root/GameSfx").get_node("AudioStreamPlayer")
 	audioPlayer.stream = deadSound
