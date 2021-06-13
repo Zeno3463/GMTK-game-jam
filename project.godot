@@ -26,6 +26,7 @@ Sfx="*res://playerSfx.tscn"
 EnemySfx="*res://enemySfx.tscn"
 GameSfx="*res://gameSfx.tscn"
 Ui="*res://ui.tscn"
+Bgm="*res://bgm.tscn"
 
 [display]
 
